@@ -4,5 +4,8 @@
 - include_tasks: conjurOSS.yml
   when: conjur_version == 'OSS'
 
+- include_tasks: splunk.yml
+  when: splunk_install == 'YES' and conjur_version == 'EE'
+  
 - include_tasks: conjurEE.yml
   when: conjur_version == 'EE'

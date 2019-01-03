@@ -28,6 +28,10 @@
     name: "{{ conjur_container_name }}"
     image: "{{ conjur_EE_image_name }}"
     state: started
+    log_driver: splunk
+    log_options:
+      splunk-token:
+      splunk-url: "http://{{ splunk_container_name}}:{{ splunk_http_port}}"
     privileged: yes
     recreate: yes
     networks:
